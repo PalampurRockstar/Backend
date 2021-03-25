@@ -1,0 +1,15 @@
+version: "3.0"
+
+services:
+  discovery:
+    build: 
+      context: ./Discovery/
+      dockerfile: Dockerfile
+    ports:
+      - 8181:8181
+  gateway:
+    build:
+      context: ./Gateway/
+      dockerfile: Dockerfile
+    ports:
+      - 8282:8282
