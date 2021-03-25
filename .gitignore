@@ -1,2 +1,4 @@
 Discovery/target/
 Gateway/target/
+*.iml
+Discovery/.idea/
