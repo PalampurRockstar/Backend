@@ -6,7 +6,7 @@ WORKDIR /tmp/
 RUN mvn package
 
 FROM openjdk:8
-EXPOSE 8282
+EXPOSE 5555
 COPY --from=maven_build /tmp/target/gateway.jar /data/gateway.jar
 CMD java -jar /data/gateway.jar
 
