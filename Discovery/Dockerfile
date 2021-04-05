@@ -6,7 +6,7 @@ WORKDIR /tmp/
 RUN mvn package
 
 FROM openjdk:8
-EXPOSE 8181
+EXPOSE 4444
 COPY --from=maven_build /tmp/target/discovery.jar /data/discovery.jar
 CMD java -jar /data/discovery.jar
 

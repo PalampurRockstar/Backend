@@ -6,10 +6,10 @@ services:
       context: ./Discovery/
       dockerfile: Dockerfile
     ports:
-      - 8181:8181
+      - 4444:4444
   gateway:
     build:
       context: ./Gateway/
       dockerfile: Dockerfile
     ports:
-      - 8282:8282
+      - 5555:5555
