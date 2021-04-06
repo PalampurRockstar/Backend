@@ -9,7 +9,9 @@
     <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
     <modules>
-        <module>Discovery</module>
-        <module>Gateway</module>
+        <module>configuration-server</module>
+        <module>discovery-server</module>
+        <module>gateway-server</module>
+		<module>product-service</module>
     </modules>
 </project>
