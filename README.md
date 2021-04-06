@@ -1,7 +1,9 @@
 __Intro__ : POC to develop complete backend system with all possible technologies.
 # Modules
-* Discovery
-* Gateway
+* discovery-server
+* gateway-server
+* configuration-server
+* product-service
 
 Docker enabled for the deployemnt 
 Steps :
