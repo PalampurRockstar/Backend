@@ -1,6 +1,10 @@
-Discovery/.idea/
-Discovery/target/
-Gateway/.idea/
-Gateway/target/
+discovery-server/.idea/
+discovery-server/target/
+gateway-server/.idea/
+gateway-server/target/
+configuration-server/.idea/
+configuration-server/target/
+product-service/.idea/
+product-service/target/
 *.iml
 .idea/
