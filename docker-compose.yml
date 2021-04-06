@@ -1,5 +1,4 @@
 version: "3.0"
-
 services:
   discovery:
     build: 
@@ -13,3 +12,5 @@ services:
       dockerfile: Dockerfile
     ports:
       - 5555:5555
+    depends_on:
+      - discovery
