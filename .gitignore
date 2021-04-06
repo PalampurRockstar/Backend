@@ -1,0 +1,6 @@
+Discovery/.idea/
+Discovery/target/
+Gateway/.idea/
+Gateway/target/
+*.iml
+.idea/
