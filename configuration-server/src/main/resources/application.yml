@@ -12,12 +12,3 @@ spring:
           clone-on-start: true
           search-paths: 'common-configuration'
 
-eureka:
-  instance:
-    hostname: localhost
-
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:4444/eureka/
