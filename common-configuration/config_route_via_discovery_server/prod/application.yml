@@ -7,3 +7,5 @@ eureka:
     hostname: localhost
     leaseRenewalIntervalInSeconds: 10
     leaseExpirationDurationInSeconds: 20
+
+description: "This is production profile"
