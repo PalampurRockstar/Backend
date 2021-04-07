@@ -1,5 +1,18 @@
 spring:
   cloud:
     config:
-      enabled: true
-      uri: http://localhost:3333
+      discovery:
+        service-id: configuration
+        enabled: true
+      fail-fast: true
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:4444/eureka/
+    enabled: true
+
+  instance:
+    hostname: localhost
