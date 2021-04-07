@@ -5,6 +5,8 @@ spring:
         service-id: configuration
         enabled: true
       fail-fast: true
+  profiles:
+    active: dev
 
 eureka:
   client:
