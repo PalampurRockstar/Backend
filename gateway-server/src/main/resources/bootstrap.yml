@@ -2,7 +2,7 @@ spring:
   cloud:
     config:
       discovery:
-        service-id: configuration
+        service-id: configuration-server
         enabled: true
       fail-fast: true
 

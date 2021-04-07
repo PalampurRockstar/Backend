@@ -1,0 +1,13 @@
+server:
+  port: 7777
+
+spring:
+  application:
+    name: customer-service
+
+description: Hi test
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
