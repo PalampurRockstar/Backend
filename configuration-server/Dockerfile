@@ -6,7 +6,7 @@ WORKDIR /tmp/
 RUN mvn package
 
 FROM openjdk:8
-EXPOSE 4444
+EXPOSE 3333
 COPY --from=maven_build /tmp/target/configuration.jar /data/configuration.jar
 CMD java -jar /data/configuration.jar
 

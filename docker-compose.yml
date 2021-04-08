@@ -1,16 +1,32 @@
 version: "3.0"
 services:
-  discovery:
+  discovery-server:
     build: 
-      context: ./Discovery/
+      context: ./discovery-server/
       dockerfile: Dockerfile
     ports:
       - 4444:4444
-  gateway:
+  gateway-server:
     build:
-      context: ./Gateway/
+      context: ./gateway-server/
       dockerfile: Dockerfile
     ports:
       - 5555:5555
     depends_on:
-      - discovery
+      - configuration-server
+  configuration-server:
+    build:
+      context: ./configuration-server/
+      dockerfile: Dockerfile
+    ports:
+      - 3333:3333
+    depends_on:
+      - discovery-server
+  product-service:
+    build:
+      context: ./product-service/
+      dockerfile: Dockerfile
+    ports:
+      - 2222:2222
+    depends_on:
+      - configuration-server

@@ -6,5 +6,10 @@ configuration-server/.idea/
 configuration-server/target/
 product-service/.idea/
 product-service/target/
+customer-service/.idea/
+customer-service/target/
 *.iml
 .idea/
+customer-service/target/
+customer-service/project/
+customer-service/.bsp/

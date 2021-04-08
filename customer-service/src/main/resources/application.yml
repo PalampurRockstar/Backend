@@ -1,10 +1,11 @@
 server:
-  port: 2222
+  port: 7777
 
 spring:
   application:
-    name: product-service
+    name: customer-service
 
+description: Hi test
 management:
   endpoints:
     web:
