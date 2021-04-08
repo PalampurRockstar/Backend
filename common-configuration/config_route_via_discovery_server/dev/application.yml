@@ -8,4 +8,4 @@ eureka:
     leaseRenewalIntervalInSeconds: 10
     leaseExpirationDurationInSeconds: 20
 
-description: "This is development profile"
+description: "This is DEVELOPMENT profile"
