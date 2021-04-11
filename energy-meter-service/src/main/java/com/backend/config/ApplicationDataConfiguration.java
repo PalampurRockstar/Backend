@@ -13,6 +13,10 @@ import java.util.*;
 @Configuration
 public class ApplicationDataConfiguration {
 
+    private static final String MOST_EVIL_PRICE_PLAN_ID = "price-plan-0";
+    private static final String RENEWABLES_PRICE_PLAN_ID = "price-plan-1";
+    private static final String STANDARD_PRICE_PLAN_ID = "price-plan-2";
+
     @Bean
     public List<PricePlan> pricePlans() {
         ArrayList<PricePlan> pricePlansList = new ArrayList();
@@ -21,20 +25,6 @@ public class ApplicationDataConfiguration {
         pricePlansList.add(new PricePlan("Power for everyone", "price-plan-2", BigDecimal.ONE));
         return pricePlansList;
     }
-
-//    @Bean
-//    public Map<String,List<ElectricityReading>> electricityReadingGenerate(){
-//        final Map<String,List<ElectricityReading>> readingsMap = new HashMap<>();
-//        ArrayList<ElectricityReading> electricityReadingList = new ArrayList<ElectricityReading>();
-//        electricityReadingList.add(new ElectricityReading(Instant.now(),BigDecimal.valueOf(0.0004)));
-//        electricityReadingList.add(new ElectricityReading(Instant.now(),BigDecimal.valueOf(0.0916)));
-//        readingsMap.put("smart-meter-0",electricityReadingList);
-//        System.out.println("--------------------------------------------------"+readingsMap);
-//        return readingsMap;
-//    }
-    private static final String MOST_EVIL_PRICE_PLAN_ID = "price-plan-0";
-    private static final String RENEWABLES_PRICE_PLAN_ID = "price-plan-1";
-    private static final String STANDARD_PRICE_PLAN_ID = "price-plan-2";
 
     @Bean
     public Map<String, List<ElectricityReading>> perMeterElectricityReadings() {
@@ -57,6 +47,4 @@ public class ApplicationDataConfiguration {
         smartMeterToPricePlanAccounts.put("smart-meter-4", RENEWABLES_PRICE_PLAN_ID);
         return smartMeterToPricePlanAccounts;
     }
-
-//
 }
