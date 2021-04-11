@@ -15,12 +15,6 @@ public class PricePlanController {
     @Autowired
     PricePlanService pricePlanService;
 
-//    private final PricePlanService pricePlanService;
-
-//    public PricePlanController(PricePlanService pricePlanService) {
-//        this.pricePlanService = pricePlanService;
-//    }
-
     @GetMapping("/compare-all/{smartMeterId}")
     public ResponseEntity calculatedCostForEachPricePlan(@PathVariable String smartMeterId) {
        return pricePlanService.comparisonsOfPricePlansWithInputedMeterPricePlan(smartMeterId);
@@ -30,20 +24,5 @@ public class PricePlanController {
     public ResponseEntity<List<Map.Entry<String, BigDecimal>>> recommendCheapestPricePlans(@PathVariable String smartMeterId,
                                                                                            @RequestParam(value = "limit", required = false) Integer limit) {
             return pricePlanService.recommendCheapestPlan(smartMeterId,limit);
-//        Optional<Map<String, BigDecimal>> consumptionsForPricePlans =
-//                pricePlanService.getConsumptionOfElectricityReadingsforEachPricePlan(smartMeterId);
-//
-//        if (!consumptionsForPricePlans.isPresent()) {
-//            return ResponseEntity.notFound().build();
-//        }
-//
-//        List<Map.Entry<String, BigDecimal>> recommendations = new ArrayList<>(consumptionsForPricePlans.get().entrySet());
-//        recommendations.sort(Comparator.comparing(Map.Entry::getValue));
-//
-//        if (limit != null && limit < recommendations.size()) {
-//            recommendations = recommendations.subList(0, limit);
-//        }
-//
-//        return ResponseEntity.ok(recommendations);
     }
 }
