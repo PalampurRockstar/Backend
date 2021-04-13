@@ -3,18 +3,14 @@ package com.backend;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 @SpringBootApplication
 @EnableEurekaClient
 @RestController
-public class ProductServiceApplication {
+public class EnergyMeterReaderApplication {
     @Value("${description}")
     String description;
     @GetMapping("/test")
@@ -23,8 +19,6 @@ public class ProductServiceApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(ProductServiceApplication.class,args);
+        SpringApplication.run(EnergyMeterReaderApplication.class,args);
     }
-
-
 }

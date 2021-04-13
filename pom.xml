@@ -13,5 +13,6 @@
         <module>discovery-server</module>
         <module>gateway-server</module>
 		<module>product-service</module>
+        <module>energy-meter-service</module>
     </modules>
 </project>
