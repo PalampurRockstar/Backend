@@ -1,0 +1,17 @@
+server:
+  port: 2342
+
+spring:
+  application:
+    name: consul-client-service
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  cloud:
+    consul:
+      host: localhost
+      port: 8500

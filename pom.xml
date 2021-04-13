@@ -14,5 +14,6 @@
         <module>gateway-server</module>
 		<module>product-service</module>
         <module>energy-meter-service</module>
+        <module>consul-client-service</module>
     </modules>
 </project>
