@@ -11,4 +11,4 @@ spring:
 Run consul server 
 Steps :
 1. create directory `consul-data` 
-2. `consul agent -server -bootstrap-expect=1 -data-dir ./consul-data -ui -bind=192.168.1.37`
+2. `consul agent -server -bootstrap-expect=1 -data-dir ./consul-data -ui -bind=<ip address>`
