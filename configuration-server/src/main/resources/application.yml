@@ -10,7 +10,7 @@ spring:
         git:
           uri: 'https://github.com/PalampurRockstar/Backend'
           clone-on-start: true
-          search-paths: 'common-configuration/config_route_via_discovery_server/{profile}'
+          search-paths: 'common-configuration/{profile}'
 
 eureka:
   instance:
