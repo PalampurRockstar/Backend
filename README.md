@@ -4,6 +4,8 @@ __Intro__ : POC to develop complete backend system with all possible technologie
 * gateway-server
 * configuration-server
 * product-service
+* customer-service
+* meter-reading-service
 
 Docker enabled for the deployemnt 
 Steps :
