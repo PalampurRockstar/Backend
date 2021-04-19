@@ -1,16 +1,6 @@
 server:
-  port: 2222
+  port: 6565
 
 spring:
   application:
-    name: EnergyMeterApp
-
-eureka:
-  instance:
-    hostname: localhost
-
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:4444/eureka/
+    name: energy-meter-app

@@ -17,12 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProductServiceApplication {
     @Value("${description}")
     String description;
-    public static void main(String[] args) {
-        SpringApplication.run(ProductServiceApplication.class,args);
-    }
-
     @GetMapping("/test")
     public String test(){
         return description+" working!";
     }
+
+    public static void main(String[] args) {
+        SpringApplication.run(ProductServiceApplication.class,args);
+    }
+
+
 }
