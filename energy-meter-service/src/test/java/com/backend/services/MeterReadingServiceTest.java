@@ -23,13 +23,6 @@ class MeterReadingServiceTest {
     @InjectMocks
     MeterReadingService service;
 
-    //    @BeforeAll
-//    void     setup (){
-//        List<ElectricityReading> list= Collections.emptyList();
-//        Map<String, List<ElectricityReading>> map=new HashMap<>();
-//        map.put("hello",list);
-//        service=new MeterReadingService(map);
-//    }
     @BeforeEach
     void setup() {
         Map<String, List<ElectricityReading>> map = new HashMap<>();

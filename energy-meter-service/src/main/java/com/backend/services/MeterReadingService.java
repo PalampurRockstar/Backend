@@ -2,15 +2,10 @@ package com.backend.services;
 
 import com.backend.models.ElectricityReading;
 import com.backend.models.MeterReadings;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 
-import java.math.BigDecimal;
-import java.time.Instant;
 import java.util.*;
 
 @Service
@@ -38,6 +33,13 @@ public class MeterReadingService {
     }
 
     public Optional<List<ElectricityReading>> getMeterReadings(String smartMeterId){
+        if(smartMeterId.isEmpty() && smartMeterId == null){
+           return Optional.empty();
+        }
         return Optional.ofNullable(meterReadingStorage.get(smartMeterId));
+    }
+
+    public void weeklyMeterReadingGenerate(){
+
     }
 }

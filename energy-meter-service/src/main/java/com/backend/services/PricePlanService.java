@@ -2,6 +2,7 @@ package com.backend.services;
 
 import com.backend.models.ElectricityReading;
 import com.backend.models.PricePlan;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,9 @@ public class PricePlanService {
     private final MeterReadingService meterReadingService;
     private final Map<String, String> getPricePlanIdForSmartMeterId;
 
-    public PricePlanService(List<PricePlan> pricePlans, MeterReadingService meterReadingService, Map<String, String> getPricePlanIdForSmartMeterId) {
+    public PricePlanService(List<PricePlan> pricePlans,
+                            MeterReadingService meterReadingService,
+                            Map<String, String> getPricePlanIdForSmartMeterId) {
         this.pricePlans = pricePlans;
         this.meterReadingService = meterReadingService;
         this.getPricePlanIdForSmartMeterId = getPricePlanIdForSmartMeterId;
@@ -69,6 +72,9 @@ public class PricePlanService {
     private BigDecimal calculateCost(List<ElectricityReading> electricityReadings, PricePlan pricePlan) {
         BigDecimal average = calculateAverageReading(electricityReadings);
         BigDecimal timeElapsed = calculateTimeElapsed(electricityReadings);
+        if(timeElapsed.compareTo(BigDecimal.ZERO)== 0){
+            return new BigDecimal(Math.random());
+        }
 
         BigDecimal averagedCost = average.divide(timeElapsed, RoundingMode.HALF_UP);
         return averagedCost.multiply(pricePlan.getUnitRate());
