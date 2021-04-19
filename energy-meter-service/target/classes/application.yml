@@ -1,6 +1,0 @@
-server:
-  port: 6565
-
-spring:
-  application:
-    name: energy-meter-app
