@@ -22,11 +22,11 @@ public class BillGenerationServiceImpl implements BillGenerationService{
     @Override
     public WeeklyBillResponse getWeeklyBill(WeeklyBillRequest weeklyBillRequest) {
         BillGenerator billGenerator = new BillGenerator();
-        WeeklyBillResponse collectEachDayWithDateMap = billGenerator.generateBill(weeklyBillRequest);
+        WeeklyBillResponse collectEachDayWithDateResponse = billGenerator.generateBill(weeklyBillRequest);
         List<BigDecimal>valueCollector = new ArrayList();
         Map<LocalDate,BigDecimal> outputMap = new LinkedHashMap<>();
 
-        collectEachDayWithDateMap.getWeeklyBill().entrySet().forEach(each->{
+        collectEachDayWithDateResponse.getWeeklyBill().entrySet().forEach(each->{
             DayOfWeek day = each.getKey().getDayOfWeek();
             valueCollector.add(each.getValue());
             BigDecimal resultSum = valueCollector.stream()
