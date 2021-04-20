@@ -1,5 +1,6 @@
 package com.backend.services;
 
+import com.backend.generator.BillGenerator;
 import com.backend.models.request.WeeklyBillRequest;
 import com.backend.models.response.WeeklyBillResponse;
 import org.apache.tomcat.jni.Local;
@@ -20,25 +21,12 @@ public class BillGenerationServiceImpl implements BillGenerationService{
 
     @Override
     public WeeklyBillResponse getWeeklyBill(WeeklyBillRequest weeklyBillRequest) {
-        LocalDate startDate= weeklyBillRequest.getStartDate();
-        LocalDate endDate= weeklyBillRequest.getEndDate();
-        int perUnitRate = 2;
-
-        Random randomUnitsEachDay = new Random();
-        long noOfDaysInBetween = ChronoUnit.DAYS.between(startDate, endDate)+1;
-        List<LocalDate> dateList = Stream.iterate(startDate, date -> date.plusDays(1)).limit(noOfDaysInBetween).collect(Collectors.toList());
-        Map<LocalDate,BigDecimal> collectEachDayWithDateMap = new LinkedHashMap<>();
-
-        for(int i = 0; i< dateList.size(); i++){
-            int x = randomUnitsEachDay.nextInt((50));
-            LocalDate eachDayDate = dateList.get(i);
-            int eachDayPrice = x*perUnitRate;
-            collectEachDayWithDateMap.put(eachDayDate,BigDecimal.valueOf(eachDayPrice));
-        }
+        BillGenerator billGenerator = new BillGenerator();
+        WeeklyBillResponse collectEachDayWithDateMap = billGenerator.generateBill(weeklyBillRequest);
         final BigDecimal[] sum = {BigDecimal.ZERO};
         Map<LocalDate,BigDecimal> outputMap = new LinkedHashMap<>();
 
-        collectEachDayWithDateMap.entrySet().forEach(each->{
+        collectEachDayWithDateMap.getWeeklyBill().entrySet().forEach(each->{
             DayOfWeek day = each.getKey().getDayOfWeek();
             sum[0] = sum[0].add(each.getValue());
             if(day.toString() == "MONDAY"){
