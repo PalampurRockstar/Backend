@@ -23,15 +23,17 @@ public class BillGenerationServiceImpl implements BillGenerationService{
     public WeeklyBillResponse getWeeklyBill(WeeklyBillRequest weeklyBillRequest) {
         BillGenerator billGenerator = new BillGenerator();
         WeeklyBillResponse collectEachDayWithDateMap = billGenerator.generateBill(weeklyBillRequest);
-        final BigDecimal[] sum = {BigDecimal.ZERO};
+        List<BigDecimal>valueCollector = new ArrayList();
         Map<LocalDate,BigDecimal> outputMap = new LinkedHashMap<>();
 
         collectEachDayWithDateMap.getWeeklyBill().entrySet().forEach(each->{
             DayOfWeek day = each.getKey().getDayOfWeek();
-            sum[0] = sum[0].add(each.getValue());
-            if(day.toString() == "MONDAY"){
-                outputMap.put(each.getKey(), sum[0]);
-                sum[0] = sum[0].subtract(sum[0]);
+            valueCollector.add(each.getValue());
+            BigDecimal resultSum = valueCollector.stream()
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+            if(day.toString().equals("MONDAY")){
+                outputMap.put(each.getKey(), resultSum);
+                valueCollector.clear();
             }
         });
         return new WeeklyBillResponse(outputMap);
